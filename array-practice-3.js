@@ -49,6 +49,6 @@ function draw() {
 	  if (y[i] - 10 <= 0) {
 	    vy[i] = abs(vy[i]);
 	  }
-
-}
+    
+     }
 }
