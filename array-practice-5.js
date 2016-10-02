@@ -14,6 +14,8 @@ function mousePressed(){
 	mouseIsPressed = true;
 	startX.push(mouseX);
 	startY.push(mouseY);
+	x.push(startX);
+	y.push(startY);
 }
 
 function mouseReleased(){
@@ -21,6 +23,8 @@ function mouseReleased(){
 	mouseRelease = true;
 	endX.push(mouseX);
 	endY.push(mouseY);
+	vx.push(endX-startX);
+	vy.push(endY-startY);	
 }
 
 function setup() {
@@ -31,22 +35,15 @@ function setup() {
 function draw() {
 	background(200);
 	
-	for (var i = 0; i < 20; i++){
-
-		if (mouseIsPressed == true){
-			line (startX[i], startY[i], mouseX, mouseY);
-			x.push(startX);
-			y.push(startY);
-		}
-			
-		if (mouseRelease == true){
-			vx.push(endX-startX);
-			vy.push(endY-startY);
-			ellipse (x[numOfBalls], y[numOfBalls], 20, 20);
-			numOfBalls++;
-		}
-				
-		x[numOfBalls] = x[numOfBalls] + vx[numOfBalls];
-		y[numOfBalls] = y[numOfBalls] + vy[numOfBalls];
+	if (mouseIsPressed == true){
+		line (startX[i], startY[i], mouseX, mouseY);
 	}
+			
+	if (mouseRelease == true){
+		ellipse (x[numOfBalls], y[numOfBalls], 20, 20);
+		numOfBalls++;
+	}
+				
+	x[numOfBalls] = x[numOfBalls] + vx[numOfBalls];
+	y[numOfBalls] = y[numOfBalls] + vy[numOfBalls];
 }
