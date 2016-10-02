@@ -30,8 +30,8 @@ function draw() {
 	 	noStroke();
 	 	ellipse(x[i], y[i], 20, 20);
 	
-	  x[i] = x[i] + vx[i];
-	  y[i] = y[i] + vy[i];
+	  x[i] = x[i] + vx[i] - 1.5;
+	  y[i] = y[i] + vy[i] - 1.5;
 	  
 	  if (i ==0){
 	  	dx[0] = mouseX - x[0];
